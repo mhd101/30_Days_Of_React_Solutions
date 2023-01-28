@@ -69,6 +69,169 @@ let string4 = string1 + string2; // concatenation
 
 console.log(string4);
 
+let string5 = `The value of PI is ${(Math.PI).toFixed(2)}`
+
+console.log(string5); // Template Literals 
+
+// String Methods
+
+let str = '30DaysOfReact'
+
+console.log(str.length) // returns the string length
+console.log(str[2]) // returns the value present on the index
+console.log(str.toUpperCase()) // returns value in uppercase
+console.log(str.toLowerCase()) // returns value in lowercase
+console.log(str.substr(6,2)) // returns the trim out value
+console.log(str.substring(0,6)) // returns the trim out value
+console.log(str.split('')) // return the value in array
+console.log(str.trim()) // removes the trailing space from the beginning or the end 
+console.log(str.includes(30)) // checks the value present in the string or not
+console.log(str.replace(30, '10')) // replace the value to another value
+console.log(str.charAt(0)) // returns the value given at the index
+console.log(str.charCodeAt(0)) // returns the ASCII value
+console.log(str.indexOf('a')) // return the index 
+console.log(str.lastIndexOf('a')) // return the last index present in string
+console.log(str.concat(' by Asabeneh')) // concats two strings together
+console.log(str.startsWith('3')) // check whether it starts from given value
+console.log(str.endsWith('s')) // check whether it ends with given value
+console.log(str.search('React')) // check whether the value is present or not & also can use regex and returns the first index of the matched value
+console.log(str.match('Of')) // check whether the value is present or not & also can use regex and returns null if not present
+console.log(str.repeat(2)) // returns  the repeated version of string
+
+// String to int typecasting
+
+let int = '10';
+
+console.log(parseInt(int))
+console.log(Number(int))
+console.log(+int)
+
+// string to float typecasting
+
+let float = '10.32';
+
+console.log(parseFloat(float))
+console.log(Number(float))
+console.log(+float)
+
+// float to int typecasting
+console.log(parseInt(float))
+
+
+// Date Object
+
+const now = new Date();
+
+console.log(now.getFullYear()) // returns year
+console.log(now.getDate()) // return date
+console.log(now.getMonth() + 1) // return month
+console.log(now.getHours()) // return hours
+console.log(now.getMinutes()) // return minutes
+console.log(now.getSeconds()) // return seconds
+console.log(now.getDay()) // return day
+
+
+
+// Arrays
+
+const arr = [1,2,3,4,5]
+console.log(arr[2])
+
+const arr2 = [1, 'hello', true] // array can store different types of value
+
+const arr3 = 'Javascript is a programming language'
+console.log(arr3.split(' ')) // split the string 
+
+const arr4 = ['A', 'B', 'C']
+arr4[2] = 'c'
+console.log(arr4)
+
+const arr5 = [6,7,8,9,10]
+console.log(arr.concat(arr5)) // concat two arrays
+
+console.log(arr5.length) // returns array length
+
+console.log(arr5.indexOf(10)) // returns the index 
+
+// check items in a list
+
+const arr6 = ['John', 'Smith', 'Evay']
+
+let index = arr6.indexOf('Smith')
+
+if(index == -1) {
+    console.log("Items is not in the list")
+} else {
+    console.log("Items is present in the list")
+}
+
+// check array data type
+
+console.log(Array.isArray(arr6))
+
+// convert array to string
+
+console.log(arr6.toString())
+
+// Join method
+
+console.log(arr6.join(''))
+console.log(arr6.join(' '))
+console.log(arr6.join(', '))
+
+// Slice method
+
+console.log(arr6.slice(0,1))
+
+// Splice Method
+
+console.log(arr6.splice(1,2))
+
+// Push Method
+
+let num = [10,20,30,40,50]
+
+num.push(60)
+console.log(num)
+
+// Pop Method
+
+num.pop()
+console.log(num)
+
+// Shift Method
+
+num.shift()
+console.log(num)
+
+// Unshift Method
+
+num.unshift(0);
+console.log(num)
+
+// Reverse
+
+console.log(num.reverse());
+
+// Sort
+
+console.log(num.sort());
+
+// Array of Arrays
+
+let firstArr = [1,2,3]
+let secondArr = [4,5,6]
+
+let numbers = [firstArr, secondArr]
+
+console.log(numbers)
+
+
+
+
+
+
+
 
 
 
