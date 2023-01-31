@@ -13,5 +13,5 @@ const countries = [
   ]
 
 module.exports = {
-    countries,
+    countries
 }

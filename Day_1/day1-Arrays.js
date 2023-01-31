@@ -208,5 +208,39 @@ const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
 // 1
 
 ages.sort();
-console.log(ages)
+console.log(`Minimum Age: ${ages[0]} & Maximum Age: ${ages[ages.length-1]}`)
+
+let median = Math.floor(ages.length/2)
+let medianAge = (ages[median] + ages[median-1])/2
+console.log(`Median Age: ${medianAge}`)
+
+let sum = 0
+for(const age of ages) {sum = sum + age}
+let average = sum/ages.length
+console.log(`Average Age: ${average}`)
+
+let range = ages[ages.length-1] - ages[0]
+console.log(`Range: ${range}`)
+
+// 2
+
+console.log(cnt.countries.slice(0,10))
+
+// 3
+
+console.log(cnt.countries[Math.floor(cnt.countries.length/2)])
+
+// 4
+
+if(cnt.countries.length % 2 == 0){
+    let middleTerm = Math.ceil(cnt.countries.length/2)
+    let cnt1 = cnt.countries.splice(0,middleTerm)
+    console.log(cnt1)
+    let cnt2 = cnt.countries.splice(-middleTerm)
+    console.log(cnt2)
+} else {
+    cnt.countries.push('Iceland')
+    console.log('Added one country')
+    console.log(cnt.countries)
+}
 
