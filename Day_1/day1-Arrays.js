@@ -201,3 +201,12 @@ const fullStack = (frontEnd.toString()+ ',' + backEnd.toString()).split(',')
 console.log(fullStack)
 
 
+/* LEVEL 3 */
+
+const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+
+// 1
+
+ages.sort();
+console.log(ages)
+
