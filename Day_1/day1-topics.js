@@ -313,8 +313,81 @@ for(let i = 0; i <= 5; i++){
 }
 
 
+
+
 // Objects
 
+// Creating empty objects
 
+const person = {};
 
+// Creating objects with values
+
+const rectangle = {
+    length: 20,
+    width: 10,
+}
+
+// Accessing values from an object
+
+// we can access value from object using . followed by key name or using square bracket and a single quote
+
+// accessing using .
+
+console.log(rectangle.width)
+
+// accessing using bracket
+
+console.log(rectangle['length'])
+
+// Creating object methods
+
+const user1 = {
+    name: 'john',
+    role: 'user',
+    courseList: [],
+    buyCourse: function(courseName){
+        this.courseList.push(courseName)
+    }
+}
+
+user1.buyCourse('React')
+
+console.log(user1.courseList)
+
+// Setting new key for an object
+
+user1.country = 'Iceland'
+
+console.log(user1)
+
+user1.getName = function(){
+    return `${this.name}`
+}
+
+console.log(user1.getName())
+
+// Object methods
+
+// Object.assign():- To copy an object without modifying the original object
+
+let userCopy = Object.assign({}, user)
+console.log(userCopy)
+
+// Object.keys:- To get the keys or properties of an object as an array
+
+console.log(Object.keys(userCopy))
+
+// Object.values:- To get the values of an object as an array
+
+console.log(Object.values(userCopy))
+
+// Object.entries:- To get both the keys and values as an array
+
+console.log(Object.entries(userCopy))
+
+// hasOwnProperty:- To check if a specific key or property exist in an object
+
+console.log(user1.hasOwnProperty('name'))
+console.log(user1.hasOwnProperty('roles'))
 
