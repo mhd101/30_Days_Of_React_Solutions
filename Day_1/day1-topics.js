@@ -229,11 +229,88 @@ console.log(numbers)
 
 
 
+// Loops
 
+// for loop
 
+for(let i = 0; i <= 5; i++){
+    console.log(i)
+}
 
+// while loop
 
+// use it when iteration is not known
 
+let i = 10;
+while( i> 0){
+    console.log(i)
+    i--;
+}
+
+// do while
+
+// runs atleast once if the condition is true or false
+
+let j = 10
+do{
+    console.log(i)
+    i++;
+}while(j < 0)
+
+// for of
+
+// use to loop array if we are not interested in index value
+
+const array = [1,2,3,4,5]
+
+for (const arr of array){
+    console.log(arr)
+}
+
+// for each
+
+// use to loop array if we are interested in index value. It takes a callback funtion, the callback function take three args:- (item, index, array)
+
+array.forEach((items, index, arr) => {
+    console.log(items, index, arr)
+})
+
+// for in
+
+// use with object literals to get the keys of the object.
+
+const user = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 20,
+    country: 'Germany'
+}
+
+for(const key in user){
+    console.log(`${key}: ${user[key]}`)
+}
+
+// break
+
+// used to break the loop
+
+for(let i = 0; i <= 5; i++){
+    if(i == 3){
+        break;
+    }
+    console.log(i)
+}
+
+// continue
+
+// used to skip the item in a loop
+
+for(let i = 0; i <= 5; i++){
+    if(i ==3){
+        continue;
+    }
+    console.log(i)
+}
 
 
 
