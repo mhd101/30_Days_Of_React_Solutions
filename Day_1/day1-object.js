@@ -255,6 +255,7 @@ const usersDatabase = [
   },
 ]
 
+
 function signUp(username, email, password) {
   let flag = false;
   usersDatabase.forEach(x => {
@@ -305,6 +306,36 @@ function signUp(username, email, password) {
   }
 }
 
+function signIn(username, password){
+  let flag = false
+  let user
+  let pass
+  usersDatabase.forEach(x => {
+    if(x.username.toLowerCase() == username){
+      flag = true
+      user = x.username
+      pass = x.password
+
+    }
+  })
+
+  if(flag == true){
+    if(user.toLowerCase() == username && pass == password){
+      usersDatabase.forEach(x => {
+        if (x.username == user){
+          x.isLoggedIn = true
+        }
+        
+      })
+      console.log('User Login Successfully!')
+    } else if(user.toLowerCase() != username || pass != password) {
+      console.log('Username/Password are Incorrect!')
+    }
+  } else {
+    console.log('User doesn\'t exist in the database')
+  }
+}
+
 
 // User is creating an account... 
 signUp('mhd','mhd101','123456')
@@ -312,6 +343,46 @@ signUp('mhd','mhd101','123456')
 
 // Account Created!
 console.log(usersDatabase)
+
+// Signing user
+signIn('mhd','123456')
+
+// User mhd isLoggedIn = true
+console.log(usersDatabase)
+
+
+// 3
+
+const products = [
+  {
+    _id: 'eedfcf',
+    name: 'mobile phone',
+    description: 'Huawei Honor',
+    price: 200,
+    ratings: [
+      { userId: 'fg12cy', rate: 5 },
+      { userId: 'zwf8md', rate: 4.5 },
+    ],
+    likes: [],
+  },
+  {
+    _id: 'aegfal',
+    name: 'Laptop',
+    description: 'MacPro: System Darwin',
+    price: 2500,
+    ratings: [],
+    likes: ['fg12cy'],
+  },
+  {
+    _id: 'hedfcg',
+    name: 'TV',
+    description: 'Smart TV:Procaster',
+    price: 400,
+    ratings: [{ userId: 'fg12cy', rate: 5 }],
+    likes: ['fg12cy'],
+  },
+]
+
 
 
 
