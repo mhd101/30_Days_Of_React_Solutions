@@ -270,30 +270,30 @@ function signUp(username, email, password) {
     // TimeStamp is created when the user signUp to know when his/her id has been created.
     function createdAt() {
       let now = new Date;
-    
+
       let date = now.getDate()
       let month = now.getMonth()
       let year = now.getFullYear()
       let hours = now.getHours()
       let minutes = now.getMinutes();
-    
+
       let dd = (date < 10) ? `0${date}` : `${date}`
       let mm = (month < 10) ? `0${month}` : `${month}`
       let yyyy = year
-    
+
       let hh = (hours < 10) ? `0${hours}` : `${hours}`
       let min = (minutes < 10) ? `0${minutes}` : `${minutes}`
-    
+
       let ampm = (hh >= 12) ? 'PM' : 'AM'
-    
+
       let createdAt = `${dd}/${mm}/${yyyy} ${hh}:${min} ${ampm}`
-    
+
       return createdAt
     }
 
     // newUser Object
     let newUser = {
-      id: 'cmis8f',
+      _id: 'cmis8f',
       username: username,
       email: email,
       password: password,
@@ -306,12 +306,12 @@ function signUp(username, email, password) {
   }
 }
 
-function signIn(username, password){
+function signIn(username, password) {
   let flag = false
   let user
   let pass
   usersDatabase.forEach(x => {
-    if(x.username.toLowerCase() == username){
+    if (x.username.toLowerCase() == username) {
       flag = true
       user = x.username
       pass = x.password
@@ -319,16 +319,16 @@ function signIn(username, password){
     }
   })
 
-  if(flag == true){
-    if(user.toLowerCase() == username && pass == password){
+  if (flag == true) {
+    if (user.toLowerCase() == username && pass == password) {
       usersDatabase.forEach(x => {
-        if (x.username == user){
+        if (x.username == user) {
           x.isLoggedIn = true
         }
-        
+
       })
       console.log('User Login Successfully!')
-    } else if(user.toLowerCase() != username || pass != password) {
+    } else if (user.toLowerCase() != username || pass != password) {
       console.log('Username/Password are Incorrect!')
     }
   } else {
@@ -338,14 +338,14 @@ function signIn(username, password){
 
 
 // User is creating an account... 
-signUp('mhd','mhd101','123456')
+signUp('mhd', 'mhd101', '123456')
 
 
 // Account Created!
 console.log(usersDatabase)
 
 // Signing user
-signIn('mhd','123456')
+signIn('mhd', '123456')
 
 // User mhd isLoggedIn = true
 console.log(usersDatabase)
@@ -367,7 +367,7 @@ const products = [
   },
   {
     _id: 'aegfal',
-    name: 'Laptop',
+    name: 'laptop',
     description: 'MacPro: System Darwin',
     price: 2500,
     ratings: [],
@@ -375,7 +375,7 @@ const products = [
   },
   {
     _id: 'hedfcg',
-    name: 'TV',
+    name: 'tv',
     description: 'Smart TV:Procaster',
     price: 400,
     ratings: [{ userId: 'fg12cy', rate: 5 }],
@@ -383,7 +383,71 @@ const products = [
   },
 ]
 
+// 3.1
 
+function rateProduct(username, password, productName, rating) {
+  signIn(username.toLowerCase(), password)
+  usersDatabase.forEach(x => {
+    if (x.username == username) {
+      products.forEach(p => {
+        if (p.name == productName.toLowerCase()) {
+          p.ratings.push({ userId: x._id, rate: rating })
+        }
+      })
+    }
+  })
+}
+
+rateProduct('mhd', '123456', 'TV', 4.5)
+
+console.log(products)
+
+// 3.2
+
+function averageRating(productName) {
+  let sum = 0
+  let count = 0
+  products.forEach(x => {
+    if (x.name == productName.toLowerCase()) {
+      x.ratings.forEach(a => {
+        sum += a.rate
+        count++
+      })
+    }
+  })
+  const avg = sum / count
+  console.log(`Average rating of Product ${productName} is ${avg}`)
+}
+
+averageRating('tv')
+
+// 4
+
+function likeProduct(username, password, productName) {
+  signIn(username.toLowerCase(), password)
+  usersDatabase.forEach(x => {
+    if (x.username.toLowerCase() == username) {
+      products.forEach(p => {
+        if (p.name.toLowerCase() == productName.toLowerCase())
+          if (p.likes.includes(x._id)) {
+            let index = p.likes.indexOf(x._id)
+            p.likes.splice(index, 1)
+          } else {
+            p.likes.push(x._id)
+          }
+
+      })
+    }
+  })
+}
+
+likeProduct('asab', '123456', 'tv') // remove the asab likes from the product 
+
+likeProduct('mhd', '123456', 'tv') // add the likes to the product from mhd
+
+likeProduct('mhd', '123456', 'tv') // remove the mhd likes from the product
+
+console.log(products)
 
 
 
