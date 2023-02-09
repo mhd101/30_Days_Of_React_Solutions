@@ -459,7 +459,7 @@ areaOfCircle = (radius) => {
 
 // also it can be written as
 
-areaOfCircle = (radius) => 2 * 3.14 * Math.pow(radius, 2);
+areaOfCircle = (radius) => 3.14 * Math.pow(radius, 2);
 
 console.log(areaOfCircle(2))
 
