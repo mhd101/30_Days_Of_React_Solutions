@@ -391,3 +391,92 @@ console.log(Object.entries(userCopy))
 console.log(user1.hasOwnProperty('name'))
 console.log(user1.hasOwnProperty('roles'))
 
+
+
+// Functions
+
+// function declaration
+
+function square(num){
+    return num * num
+}
+
+console.log(square(3))
+
+// regular functions with unlimited no. of parameters using arguments
+
+function add(){
+    let sum = 0 
+    for(let i = 0; i < arguments.length; i++){
+        sum += arguments[i]
+    }
+    return sum
+}
+
+console.log(add(1,2,3,4,5))
+
+// arrow functions with unlimited no. of paramater using spread operator (...args)
+
+const sumAllNums = (...args) => {
+    let sum = 0
+    for(const s of args){
+        sum += s
+    }
+    return sum
+} 
+
+console.log(sumAllNums(1,2,3,4,5))
+
+// Anonymous Functions
+
+const anonymousFunction = function(){
+    return 'I am an anonymous function and my value is stored in anonymousFunction variable'
+}
+
+console.log(anonymousFunction())
+
+// Expression Function also known as anonymous function
+
+const cube = function(n){
+    return n * n * n
+}
+
+console.log(cube(2))
+
+// Self Invoking functions
+
+const areaOfSquare = (function(l,b){
+    return l * b
+})(10,20)
+
+console.log(areaOfSquare)
+
+// Arrow Function
+
+areaOfCircle = (radius) => {
+    return 2 * 3.14 * Math.pow(radius, 2);
+}
+
+// also it can be written as
+
+areaOfCircle = (radius) => 2 * 3.14 * Math.pow(radius, 2);
+
+console.log(areaOfCircle(2))
+
+// Function with default parameters (regular as well as arrow)
+
+function greeting(name = 'mhd'){
+    return name + ',  welcome to 30 Days Of React'
+}
+
+
+ greeting = (name = 'mhd') => name + ',  welcome to 30 Days Of React'
+
+console.log(greeting())
+console.log(greeting('John'))
+
+
+
+
+
+
