@@ -189,16 +189,20 @@ console.log(removeItem([1,2,3,4,5], 2))
 // 9
 
 function evenAndOdds(num){
-    let number = Math.abs(num)
-    if(number % 2 == 0){
-        console.log(`${num} is even`)
-    } else {
-        console.log(`${num} is odd`)
+    let even = 0
+    let odd = 0
+    for(let i = 0; i <= num; i++){
+        if(i % 2 == 0){
+            even++
+        } else {
+            odd++
+        }
     }
+    return `Even: ${even}\nOdd: ${odd}`
+    
 }
 
-evenAndOdds(5)
-evenAndOdds(2)
+console.log(evenAndOdds(100))
 
 // 10
 
@@ -216,13 +220,13 @@ sum(1,2,3,4)
 
 // 11
 
-userIdGenerator = () =>{
+userIdGenerator = () => {
     let alphaNum = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
     let userIds = []
 
     for(let i = 0; i < 7; i++){
-        let random = Math.floor((Math.random() * 62))
+        let random = Math.floor((Math.random() * alphaNum.length))
         userIds.push(alphaNum[random])
     }
 
