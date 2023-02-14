@@ -40,9 +40,9 @@ console.log(Math.floor(PI)); // rounding down
 
 console.log(Math.ceil(PI));  // rounding up
 
-console.log(Math.min(1,2,3,4,5,-10)); // returns -10
+console.log(Math.min(1, 2, 3, 4, 5, -10)); // returns -10
 
-console.log(Math.max(1,2,3,4,5,-10)); // returns 5
+console.log(Math.max(1, 2, 3, 4, 5, -10)); // returns 5
 
 console.log(Math.random()) // returns random value between -0 to 0.999999
 
@@ -50,7 +50,7 @@ console.log(Math.abs(-5)); // returns positive value
 
 console.log(Math.sqrt(3)); // returns square root value
 
-console.log(Math.pow(3,2)); // returns the power value
+console.log(Math.pow(3, 2)); // returns the power value
 
 console.log(Math.log(2)); // returns the log value
 
@@ -59,10 +59,10 @@ console.log(Math.cos(0)); // returns trigonometric value
 
 // Strings
 
-let string =  ''; // empty string
-let string1 =  'Hello'; // single quote string
-let string2 =  "Hello"; // double quote string
-let string3 =  `Hello`; // backtick quote string
+let string = ''; // empty string
+let string1 = 'Hello'; // single quote string
+let string2 = "Hello"; // double quote string
+let string3 = `Hello`; // backtick quote string
 
 
 let string4 = string1 + string2; // concatenation
@@ -81,8 +81,8 @@ console.log(str.length) // returns the string length
 console.log(str[2]) // returns the value present on the index
 console.log(str.toUpperCase()) // returns value in uppercase
 console.log(str.toLowerCase()) // returns value in lowercase
-console.log(str.substr(6,2)) // returns the trim out value
-console.log(str.substring(0,6)) // returns the trim out value
+console.log(str.substr(6, 2)) // returns the trim out value
+console.log(str.substring(0, 6)) // returns the trim out value
 console.log(str.split('')) // return the value in array
 console.log(str.trim()) // removes the trailing space from the beginning or the end 
 console.log(str.includes(30)) // checks the value present in the string or not
@@ -134,7 +134,7 @@ console.log(now.getDay()) // return day
 
 // Arrays
 
-const arr = [1,2,3,4,5]
+const arr = [1, 2, 3, 4, 5]
 console.log(arr[2])
 
 const arr2 = [1, 'hello', true] // array can store different types of value
@@ -146,7 +146,7 @@ const arr4 = ['A', 'B', 'C']
 arr4[2] = 'c'
 console.log(arr4)
 
-const arr5 = [6,7,8,9,10]
+const arr5 = [6, 7, 8, 9, 10]
 console.log(arr.concat(arr5)) // concat two arrays
 
 console.log(arr5.length) // returns array length
@@ -159,7 +159,7 @@ const arr6 = ['John', 'Smith', 'Evay']
 
 let index = arr6.indexOf('Smith')
 
-if(index == -1) {
+if (index == -1) {
     console.log("Items is not in the list")
 } else {
     console.log("Items is present in the list")
@@ -181,15 +181,15 @@ console.log(arr6.join(', '))
 
 // Slice method
 
-console.log(arr6.slice(0,1))
+console.log(arr6.slice(0, 1))
 
 // Splice Method
 
-console.log(arr6.splice(1,2))
+console.log(arr6.splice(1, 2))
 
 // Push Method
 
-let num = [10,20,30,40,50]
+let num = [10, 20, 30, 40, 50]
 
 num.push(60)
 console.log(num)
@@ -219,8 +219,8 @@ console.log(num.sort());
 
 // Array of Arrays
 
-let firstArr = [1,2,3]
-let secondArr = [4,5,6]
+let firstArr = [1, 2, 3]
+let secondArr = [4, 5, 6]
 
 let numbers = [firstArr, secondArr]
 
@@ -233,7 +233,7 @@ console.log(numbers)
 
 // for loop
 
-for(let i = 0; i <= 5; i++){
+for (let i = 0; i <= 5; i++) {
     console.log(i)
 }
 
@@ -242,7 +242,7 @@ for(let i = 0; i <= 5; i++){
 // use it when iteration is not known
 
 let i = 10;
-while( i> 0){
+while (i > 0) {
     console.log(i)
     i--;
 }
@@ -252,18 +252,18 @@ while( i> 0){
 // runs atleast once if the condition is true or false
 
 let j = 10
-do{
+do {
     console.log(i)
     i++;
-}while(j < 0)
+} while (j < 0)
 
 // for of
 
 // use to loop array if we are not interested in index value
 
-const array = [1,2,3,4,5]
+const array = [1, 2, 3, 4, 5]
 
-for (const arr of array){
+for (const arr of array) {
     console.log(arr)
 }
 
@@ -286,7 +286,7 @@ const user = {
     country: 'Germany'
 }
 
-for(const key in user){
+for (const key in user) {
     console.log(`${key}: ${user[key]}`)
 }
 
@@ -294,8 +294,8 @@ for(const key in user){
 
 // used to break the loop
 
-for(let i = 0; i <= 5; i++){
-    if(i == 3){
+for (let i = 0; i <= 5; i++) {
+    if (i == 3) {
         break;
     }
     console.log(i)
@@ -305,8 +305,8 @@ for(let i = 0; i <= 5; i++){
 
 // used to skip the item in a loop
 
-for(let i = 0; i <= 5; i++){
-    if(i ==3){
+for (let i = 0; i <= 5; i++) {
+    if (i == 3) {
         continue;
     }
     console.log(i)
@@ -346,7 +346,7 @@ const user1 = {
     name: 'john',
     role: 'user',
     courseList: [],
-    buyCourse: function(courseName){
+    buyCourse: function (courseName) {
         this.courseList.push(courseName)
     }
 }
@@ -361,7 +361,7 @@ user1.country = 'Iceland'
 
 console.log(user1)
 
-user1.getName = function(){
+user1.getName = function () {
     return `${this.name}`
 }
 
@@ -397,7 +397,7 @@ console.log(user1.hasOwnProperty('roles'))
 
 // function declaration
 
-function square(num){
+function square(num) {
     return num * num
 }
 
@@ -405,31 +405,31 @@ console.log(square(3))
 
 // regular functions with unlimited no. of parameters using arguments
 
-function add(){
-    let sum = 0 
-    for(let i = 0; i < arguments.length; i++){
+function add() {
+    let sum = 0
+    for (let i = 0; i < arguments.length; i++) {
         sum += arguments[i]
     }
     return sum
 }
 
-console.log(add(1,2,3,4,5))
+console.log(add(1, 2, 3, 4, 5))
 
 // arrow functions with unlimited no. of paramater using spread operator (...args)
 
 const sumAllNums = (...args) => {
     let sum = 0
-    for(const s of args){
+    for (const s of args) {
         sum += s
     }
     return sum
-} 
+}
 
-console.log(sumAllNums(1,2,3,4,5))
+console.log(sumAllNums(1, 2, 3, 4, 5))
 
 // Anonymous Functions
 
-const anonymousFunction = function(){
+const anonymousFunction = function () {
     return 'I am an anonymous function and my value is stored in anonymousFunction variable'
 }
 
@@ -437,7 +437,7 @@ console.log(anonymousFunction())
 
 // Expression Function also known as anonymous function
 
-const cube = function(n){
+const cube = function (n) {
     return n * n * n
 }
 
@@ -445,9 +445,9 @@ console.log(cube(2))
 
 // Self Invoking functions
 
-const areaOfSquare = (function(l,b){
+const areaOfSquare = (function (l, b) {
     return l * b
-})(10,20)
+})(10, 20)
 
 console.log(areaOfSquare)
 
@@ -465,18 +465,61 @@ console.log(areaOfCircle(2))
 
 // Function with default parameters (regular as well as arrow)
 
-function greeting(name = 'mhd'){
+function greeting(name = 'mhd') {
     return name + ',  welcome to 30 Days Of React'
 }
 
 
- greeting = (name = 'mhd') => name + ',  welcome to 30 Days Of React'
+greeting = (name = 'mhd') => name + ',  welcome to 30 Days Of React'
 
 console.log(greeting())
 console.log(greeting('John'))
 
 
 
+// High Order Functions
 
+// Callback Functions
+
+const hello = () => {
+    return 'Hello'
+}
+
+// function take other function as a callback
+function print(callback) {
+    return callback();
+}
+
+console.log(print(hello))
+
+// Returning Functions
+
+const one = x => {
+    const two = y => {
+        const three = z => {
+            return x * y * z;
+        }
+        return three
+    }
+    return two
+}
+
+console.log(one(1)(2)(3))
+
+// Set Interval
+
+const sayHello = () => {
+    console.log('Hello from Set Interval')
+}
+
+setInterval(sayHello, 5000)
+
+// Set Timeout
+
+const sayHello2 = () => {
+    console.log('Hello from Set Timeout')
+}
+
+setTimeout(sayHello2, 5000)
 
 
