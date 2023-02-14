@@ -512,7 +512,7 @@ const sayHello = () => {
     console.log('Hello from Set Interval')
 }
 
-setInterval(sayHello, 5000)
+// setInterval(sayHello, 5000)
 
 // Set Timeout
 
@@ -520,6 +520,125 @@ const sayHello2 = () => {
     console.log('Hello from Set Timeout')
 }
 
-setTimeout(sayHello2, 5000)
+// setTimeout(sayHello2, 5000)
+
+
+// Destructuring and Spreading
+
+// Accessing Array items using destructuring
+
+const numbers3 = [1, 2, 3, 4, 5]
+
+const [num1, num2, num3] = numbers3
+console.log(num1, num2, num3)
+
+const countries = ['finland', 'sweden', undefined, 'norway']
+
+const [fin, swe, ice = 'iceland', nor, ind = 'india'] = countries
+console.log(fin, swe, ice, nor, ind)
+
+// Destructuring Nested Arrays
+
+const fullStack = [['HTML', 'CSS', 'JS', 'React'], ['Node', 'Express', 'MongoDB']]
+
+const [frontEnd, backEnd] = fullStack
+console.log(frontEnd, backEnd)
+
+// Skipping an item during destructuring
+
+const nums = [1, 2, 3, 4, 5]
+
+const [n1, n2, , n4, n5] = nums
+console.log(n1, n2, n4, n5)
+
+// getting the rest items using spread operator ...
+
+const [number1, number2, ...number] = nums
+
+console.log(number1, number2, number)
+
+// Destructuring when we loop through arrays
+
+const countries2 = [
+    ['Finland', 'Helsinki'],
+    ['Sweden', 'Stockholm'],
+    ['Norway', 'Oslo'],
+]
+
+for (const [country, city] of countries2) {
+    console.log(country, city)
+}
+
+// Destructuring Objects
+
+const square2 = {
+    width: 10,
+    height: 10
+}
+
+const { width, height, perimeter = 100 } = square2
+console.log(width, height, perimeter)
+
+// Renaming variables name
+
+let { width: w, height: h } = square2
+console.log(w, h)
+
+// Destructuring Nested Objects
+
+const props = {
+    user: {
+        firstName: 'Asabeneh',
+        lastName: 'Yetayeh',
+        age: 250
+    },
+    post: {
+        title: 'Destructuring and Spread',
+        subtitle: 'ES6',
+        year: 2020
+    },
+    skills: ['JS', 'React', 'Redux', 'Node', 'Python']
+
+}
+  
+const {user6, post, skills} = props
+const {firstName, lastName, age} = user
+const {title, subtitle, year} = post
+const [skillOne, skillTwo, skillThree, skillFour, skillFive] = skills
+
+console.log(props)
+
+// Destructuring during loop through an array
+
+const languages = [
+    { lang: 'English', count: 91 },
+  { lang: 'French', count: 45 },
+  { lang: 'Arabic', count: 25 },
+  { lang: 'Spanish', count: 24 },
+  { lang: 'Russian', count: 9 },
+  { lang: 'Portuguese', count: 9 },
+  { lang: 'Dutch', count: 8 },
+  { lang: 'German', count: 7 },
+  { lang: 'Chinese', count: 5 },
+  { lang: 'Swahili', count: 4 },
+  { lang: 'Serbian', count: 4 },
+]
+
+for(const {lang, count} of languages){
+    console.log(lang, count)
+}
+
+// Destructuring function parameter
+
+const rectangle2 = {
+    width: 20,
+    length: 10
+}
+
+const perimeter2 = ({width, length}) => 2 * (length + width)
+
+console.log(perimeter2(rectangle2))
+
+
 
 
