@@ -642,3 +642,5 @@ console.log(perimeter2(rectangle2))
 
 
 
+
+
