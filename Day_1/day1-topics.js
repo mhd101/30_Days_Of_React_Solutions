@@ -640,7 +640,42 @@ const perimeter2 = ({width, length}) => 2 * (length + width)
 console.log(perimeter2(rectangle2))
 
 
+// Spread Operator
+
+const books = ['book1', 'book2', 'book3']
+
+const [b1, ...rest] = books
+
+console.log(b1,rest)
+
+// Using spread operator to copy array
+
+const even = [0,2,4,6,8,10]
+const [...evens] = even
+
+const odd = [1,3,5,7,9]
+const [...odds] = odd
+
+const wholeNum = [...evens, ...odds]
+console.log(wholeNum)
 
 
+// Using spread operator to copy objects
+
+const userObject = {
+    name: 'John',
+    title: 'Developer',
+    country: 'Germany',
+}
+
+const copiedUser = {...userObject}
+console.log(copiedUser)
+
+
+// Modifying object while copying using spread operator
+
+const copyUser = {...userObject, title: 'Programmer'}
+
+console.log(copyUser)
 
 
