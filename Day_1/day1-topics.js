@@ -701,7 +701,7 @@ const countriesLength = countriesArr.map(x => x.length)
 
 console.log(countriesLength)
 
-// Filter
+// Filter:- It returns the filtered items from an array
 
 const countriesEndsWithLand = countriesArr.filter(x =>  {
     return x.includes('land')
