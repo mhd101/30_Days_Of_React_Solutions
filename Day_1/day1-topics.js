@@ -679,3 +679,183 @@ const copyUser = {...userObject, title: 'Programmer'}
 console.log(copyUser)
 
 
+// Functional Programming 
+
+// forEach :- It is used when we need to loop items in an array and it take a callback function with three parameters (item, index, array)
+
+const countriesArr = ['Finland', 'Estonia', 'Sweden', 'Norway']
+
+countriesArr.forEach((item, inder , arr) => {
+    console.log(item.toUpperCase(), inder, arr)
+})
+
+// Map :- It is used when we need to modify the array and returns the array
+
+const upperCaseCountries = countriesArr.map(x => {
+    return x.toUpperCase()
+})
+
+console.log(upperCaseCountries)
+
+const countriesLength = countriesArr.map(x => x.length)
+
+console.log(countriesLength)
+
+// Filter
+
+const countriesEndsWithLand = countriesArr.filter(x =>  {
+    return x.includes('land')
+})
+
+console.log(countriesEndsWithLand)
+
+// Reduce
+
+const people = [
+    {id: '1', name: 'Leigh', age:25},
+    {id: '2', name: 'Jenny', age:30},
+    {id: '3', name: 'Heather', age:28},
+]
+
+let result;
+
+// count
+
+result = people.reduce((acc, person) => {
+    return acc + 1
+},0)
+
+console.log(result)
+
+// sum ages 
+
+result = people.reduce((acc, person) => {
+    return acc + person.age
+}, 0)
+
+console.log(result)
+
+// array of names (map)
+
+result = people.reduce((acc, person) => {
+    return [...acc, person.name]
+}, [])
+
+console.log(result)
+
+// convert to id => person loopup
+
+result = people.reduce((acc, person) => {
+    return {...acc, [person.id]: person}
+}, {})
+
+console.log(result)
+console.log(result['1'])
+
+// max age
+
+result = people.reduce((maxAge, person) => {
+    if(person.age > maxAge){
+        return person.age
+    }
+
+    return maxAge
+    
+},0)
+
+
+console.log(result)
+
+// min age
+
+result = people.reduce((acc, person) => {
+    if(acc == null || person.age < acc) return person.age
+    return acc;
+}, null)
+
+console.log(result)
+
+// find by name
+
+result = people.reduce((acc, person) => {
+    if(acc !== null) return acc
+    if(person.name === 'Heather') return person
+    return null
+}, null)
+
+console.log(result)
+
+// all over 18
+
+result = people.reduce((acc, person) => {
+    if(!acc) return false
+    return person.age > 18
+
+},true)
+
+console.log(result);
+
+// any over 19
+
+result = people.reduce((acc,person) =>  {
+    if(acc) return true
+    return person.age > 18
+},false)
+
+console.log(result)
+
+// count occurences
+
+const orders = [
+    {id: '1', status: 'pending'},
+    {id: '2', status: 'pending'},
+    {id: '3', status: 'cancelled'},
+    {id: '4', status: 'shipped'}
+]
+
+result = orders.reduce((prev, orders) => {
+        prev[orders.status] = (prev[orders.status] || 0) + 1
+        return prev
+},{})
+
+console.log(result)
+
+// find :- It returns the first occurence of an item instead of an array
+
+const wholeNumbers = [0,1,2,3,4,5,6]
+let firstEvenNumber = wholeNumbers.find(e => e % 2 == 0)
+let firstOddNumber = wholeNumbers.find(e => e % 2 != 0)
+console.log(firstEvenNumber)
+console.log(firstOddNumber)
+
+// findIndex :- It returns the index of first occurence of an item 
+
+const country = ['Finland', 'Estonia', 'Sweden', 'Norway', 'Iceland']
+const indx = country.findIndex(i => i.endsWith('land'))
+console.log(indx)
+
+// some:- It returns true if any items satisfy the criteria else it will be false. It works with array
+
+let someAreEven = wholeNumbers.some((n) => n % 2 == 0)
+console.log(someAreEven)
+
+let evensNum = [0,2,4,6,8]
+let someAreOdds = evensNum.some((n) => n % 2 != 0)
+console.log(someAreOdds)
+
+// every:- It returns false if any doesn't satisfy the criteria else it will be true. It works with array
+
+const primeNumbers = [2,3,5,7,9]
+
+let oddsInPrime = primeNumbers.every(n => n % 2 != 0)
+console.log(oddsInPrime)
+
+let countries5 = ['Iceland', 'Finland', 'Greenland']
+
+let isCountriesEndsWithLand = countries5.every(c => c.includes('land'))
+
+console.log(isCountriesEndsWithLand)
+
+
+
+
