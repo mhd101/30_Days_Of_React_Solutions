@@ -600,10 +600,10 @@ const props = {
     skills: ['JS', 'React', 'Redux', 'Node', 'Python']
 
 }
-  
-const {user6, post, skills} = props
-const {firstName, lastName, age} = user
-const {title, subtitle, year} = post
+
+const { user6, post, skills } = props
+const { firstName, lastName, age } = user
+const { title, subtitle, year } = post
 const [skillOne, skillTwo, skillThree, skillFour, skillFive] = skills
 
 console.log(props)
@@ -612,19 +612,19 @@ console.log(props)
 
 const languages = [
     { lang: 'English', count: 91 },
-  { lang: 'French', count: 45 },
-  { lang: 'Arabic', count: 25 },
-  { lang: 'Spanish', count: 24 },
-  { lang: 'Russian', count: 9 },
-  { lang: 'Portuguese', count: 9 },
-  { lang: 'Dutch', count: 8 },
-  { lang: 'German', count: 7 },
-  { lang: 'Chinese', count: 5 },
-  { lang: 'Swahili', count: 4 },
-  { lang: 'Serbian', count: 4 },
+    { lang: 'French', count: 45 },
+    { lang: 'Arabic', count: 25 },
+    { lang: 'Spanish', count: 24 },
+    { lang: 'Russian', count: 9 },
+    { lang: 'Portuguese', count: 9 },
+    { lang: 'Dutch', count: 8 },
+    { lang: 'German', count: 7 },
+    { lang: 'Chinese', count: 5 },
+    { lang: 'Swahili', count: 4 },
+    { lang: 'Serbian', count: 4 },
 ]
 
-for(const {lang, count} of languages){
+for (const { lang, count } of languages) {
     console.log(lang, count)
 }
 
@@ -635,7 +635,7 @@ const rectangle2 = {
     length: 10
 }
 
-const perimeter2 = ({width, length}) => 2 * (length + width)
+const perimeter2 = ({ width, length }) => 2 * (length + width)
 
 console.log(perimeter2(rectangle2))
 
@@ -646,14 +646,14 @@ const books = ['book1', 'book2', 'book3']
 
 const [b1, ...rest] = books
 
-console.log(b1,rest)
+console.log(b1, rest)
 
 // Using spread operator to copy array
 
-const even = [0,2,4,6,8,10]
+const even = [0, 2, 4, 6, 8, 10]
 const [...evens] = even
 
-const odd = [1,3,5,7,9]
+const odd = [1, 3, 5, 7, 9]
 const [...odds] = odd
 
 const wholeNum = [...evens, ...odds]
@@ -668,13 +668,13 @@ const userObject = {
     country: 'Germany',
 }
 
-const copiedUser = {...userObject}
+const copiedUser = { ...userObject }
 console.log(copiedUser)
 
 
 // Modifying object while copying using spread operator
 
-const copyUser = {...userObject, title: 'Programmer'}
+const copyUser = { ...userObject, title: 'Programmer' }
 
 console.log(copyUser)
 
@@ -685,7 +685,7 @@ console.log(copyUser)
 
 const countriesArr = ['Finland', 'Estonia', 'Sweden', 'Norway']
 
-countriesArr.forEach((item, inder , arr) => {
+countriesArr.forEach((item, inder, arr) => {
     console.log(item.toUpperCase(), inder, arr)
 })
 
@@ -703,7 +703,7 @@ console.log(countriesLength)
 
 // Filter:- It returns the filtered items from an array
 
-const countriesEndsWithLand = countriesArr.filter(x =>  {
+const countriesEndsWithLand = countriesArr.filter(x => {
     return x.includes('land')
 })
 
@@ -712,9 +712,9 @@ console.log(countriesEndsWithLand)
 // Reduce
 
 const people = [
-    {id: '1', name: 'Leigh', age:25},
-    {id: '2', name: 'Jenny', age:30},
-    {id: '3', name: 'Heather', age:28},
+    { id: '1', name: 'Leigh', age: 25 },
+    { id: '2', name: 'Jenny', age: 30 },
+    { id: '3', name: 'Heather', age: 28 },
 ]
 
 let result;
@@ -723,7 +723,7 @@ let result;
 
 result = people.reduce((acc, person) => {
     return acc + 1
-},0)
+}, 0)
 
 console.log(result)
 
@@ -746,7 +746,7 @@ console.log(result)
 // convert to id => person loopup
 
 result = people.reduce((acc, person) => {
-    return {...acc, [person.id]: person}
+    return { ...acc, [person.id]: person }
 }, {})
 
 console.log(result)
@@ -755,13 +755,13 @@ console.log(result['1'])
 // max age
 
 result = people.reduce((maxAge, person) => {
-    if(person.age > maxAge){
+    if (person.age > maxAge) {
         return person.age
     }
 
     return maxAge
-    
-},0)
+
+}, 0)
 
 
 console.log(result)
@@ -769,7 +769,7 @@ console.log(result)
 // min age
 
 result = people.reduce((acc, person) => {
-    if(acc == null || person.age < acc) return person.age
+    if (acc == null || person.age < acc) return person.age
     return acc;
 }, null)
 
@@ -778,8 +778,8 @@ console.log(result)
 // find by name
 
 result = people.reduce((acc, person) => {
-    if(acc !== null) return acc
-    if(person.name === 'Heather') return person
+    if (acc !== null) return acc
+    if (person.name === 'Heather') return person
     return null
 }, null)
 
@@ -788,41 +788,41 @@ console.log(result)
 // all over 18
 
 result = people.reduce((acc, person) => {
-    if(!acc) return false
+    if (!acc) return false
     return person.age > 18
 
-},true)
+}, true)
 
 console.log(result);
 
 // any over 19
 
-result = people.reduce((acc,person) =>  {
-    if(acc) return true
+result = people.reduce((acc, person) => {
+    if (acc) return true
     return person.age > 18
-},false)
+}, false)
 
 console.log(result)
 
 // count occurences
 
 const orders = [
-    {id: '1', status: 'pending'},
-    {id: '2', status: 'pending'},
-    {id: '3', status: 'cancelled'},
-    {id: '4', status: 'shipped'}
+    { id: '1', status: 'pending' },
+    { id: '2', status: 'pending' },
+    { id: '3', status: 'cancelled' },
+    { id: '4', status: 'shipped' }
 ]
 
 result = orders.reduce((prev, orders) => {
-        prev[orders.status] = (prev[orders.status] || 0) + 1
-        return prev
-},{})
+    prev[orders.status] = (prev[orders.status] || 0) + 1
+    return prev
+}, {})
 
 console.log(result)
 
 // find :- It returns the first occurence of an item instead of an array
 
-const wholeNumbers = [0,1,2,3,4,5,6]
+const wholeNumbers = [0, 1, 2, 3, 4, 5, 6]
 let firstEvenNumber = wholeNumbers.find(e => e % 2 == 0)
 let firstOddNumber = wholeNumbers.find(e => e % 2 != 0)
 console.log(firstEvenNumber)
@@ -839,13 +839,13 @@ console.log(indx)
 let someAreEven = wholeNumbers.some((n) => n % 2 == 0)
 console.log(someAreEven)
 
-let evensNum = [0,2,4,6,8]
+let evensNum = [0, 2, 4, 6, 8]
 let someAreOdds = evensNum.some((n) => n % 2 != 0)
 console.log(someAreOdds)
 
 // every:- It returns false if any doesn't satisfy the criteria else it will be true. It works with array
 
-const primeNumbers = [2,3,5,7,9]
+const primeNumbers = [2, 3, 5, 7, 9]
 
 let oddsInPrime = primeNumbers.every(n => n % 2 != 0)
 console.log(oddsInPrime)
@@ -856,6 +856,130 @@ let isCountriesEndsWithLand = countries5.every(c => c.includes('land'))
 
 console.log(isCountriesEndsWithLand)
 
+
+// Classes
+
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName
+        this.lastName = lastName
+    }
+}
+
+const p1 = new Person('John', 'Doe');
+console.log(p1)
+
+// constructor default values
+
+class Employee {
+    constructor(Name, Position = 'Developer') {
+        this.Name = Name
+        this.Position = Position
+    }
+}
+
+
+const emp1 = new Employee('John')
+console.log(emp1)
+
+const emp2 = new Employee('Smith', 'HR')
+console.log(emp2)
+
+// class Methods
+
+class Student {
+    constructor(Name, rollNo) {
+        this.Name = Name
+        this.rollNo = rollNo
+    }
+
+    getStudentInfo() {
+        return `Name: ${this.Name}\nRoll No: ${this.rollNo}`
+    }
+
+}
+
+const std1 = new Student('John', 123)
+console.log(std1.getStudentInfo())
+
+// Getter and Setter
+
+class Student2 {
+
+    constructor(Name, rollNo) {
+        this.Name = Name
+        this.rollNo = rollNo
+    }
+
+    set setStudentName(Name) {
+        this.Name = Name
+    }
+
+    set setStudentRollNo(rollNo) {
+        this.rollNo = rollNo
+    }
+
+    get StudentInfo() {
+        return this.Name + " " + this.rollNo
+    }
+
+}
+
+const std2 = new Student2()
+std2.setStudentName = 'Smith'
+std2.setStudentRollNo = 123
+
+console.log(std2.StudentInfo)
+
+// Static Method
+
+class Person2 {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    static getId(){
+        console.log('Null')
+    }
+}
+
+Person2.getId() // It can be called without creating object
+
+// Inheritance
+
+class Animal {
+    eating(){
+        console.log('Animal is Eating')
+    }
+
+    moving(){
+        console.log('Animal is Moving')
+    }
+}
+
+class Lion extends Animal {
+
+}
+
+const lion = new Lion()
+lion.eating() // taking properties of parent class animal
+lion.moving() // taking properties of parent class animal
+
+// Method Overriding
+
+class Cat extends Animal {
+    eating(){
+        console.log('Cat is eating')
+    }
+    moving(){
+        console.log('Cat is moving')
+    }
+}
+
+const cat = new Cat()
+cat.eating() // eating method of parent class animal is overrided by child class cat
+cat.moving() // eating method of parent class animal is overrided by child class cat
 
 
 
