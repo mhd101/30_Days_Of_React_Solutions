@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to React</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+       .header h1,h2,h3,p {
+        text-align: center;
+        padding: 10px;
+      }
+
+      .header {
+        background-color: #6cf;
+      }
+
+      .main p {
+        font-size: larger;
+        
+      }
+
+      ul li {
+        list-style: none;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: larger;
+      }
+
+      .main {
+        padding: 20px;
+      }
+
+      .footer {
+        background-color: #6cf;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+      }
+
+      .footer p {
+        font-weight: 400;
+        text-align: center;
+        line-height: 40px;
+      }
+      
+    </style>
+</head>
+<body>
+    <div class="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+    const rootElement = document.querySelector('.root')
+
+      const challenge = '30 Days of React Challenge'
+      const person = {
+        name: 'Mhd_101'
+      }
+      // Header JSX Element
+      const header = (
+        <header className='header'>
+            <h1>{challenge}</h1>    
+            <h2>Getting Started React</h2>
+            <h3>Javascript Library</h3>
+            <p>{person.name}</p>
+        </header>
+      )
+
+      const techs = ['HTML', 'CSS', 'Javascript']
+      const techsFormatted = techs.map((tech) => <li key={tech}>{tech}</li>)
+
+      // Main JSX Element
+      const main = (
+        <main className='main'>
+            <p>Prerequisite to get started react.js:</p>
+            <ul>
+                {techsFormatted}   
+            </ul>    
+        </main>
+      )
+
+
+      // Footer JSX Element
+      const footer = (
+        <footer className='footer'>
+            <p>Copyright 2023</p>    
+        </footer>
+      )
+
+      // Wrap all the JSX Element in single Element
+      const app = (
+        <div>
+            {header}
+            {main}
+            {footer}
+        </div>
+      )
+
+      // Render the JSX Element
+      ReactDOM.render(app, rootElement)
+    </script>
+</body>
+</html>
