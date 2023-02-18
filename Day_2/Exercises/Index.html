@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises</title>
+    <style>
+        .myname {
+            text-align: center;
+        }
+        .main h1 {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 3em;
+        }
+
+        .main h3 {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 2em;
+            font-weight: 300;
+        }
+
+        .main p {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 2em;
+        }
+
+        ul li {
+            list-style: none;
+            text-align: center;
+            font-size: 1.5em;
+            margin-right: 40px;
+            font-family: sans-serif;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+    const rootElement = document.querySelector('.root')
+    
+    // Exercise : JSX Elements
+
+    // 1
+     
+    /* JSX element allow to write js code with html */
+
+    // 2
+
+    const myName = <h1 className='myname'>I am Mhd101</h1>
+
+    // 3
+
+    const myInfo = (
+        <header style={mainStyles}>
+            <h1>Mohammad</h1>
+            <p>India</p>
+            <p>xyz@gmail.com</p>
+            <p>0123456789</p>
+            </header>
+            )
+            
+    // 4
+            
+    const footer = <p>Copyright 2023</p>
+            
+            
+    // Exercise : Inline Style
+            
+    //1
+
+    const mainStyles = {backgroundColor: '#6cf', fontSize: '20px'}
+
+    // 2
+
+    const footerStyle = {backgroundColor: '#6cf', textAlign: 'center'}
+    
+    // Exercise Internal Styles
+
+    // Added className to the myName JSX Element and Applied styles in the internal styles
+
+    // Exercise Inject Data to your JSX Element
+        
+    const role = 'Frontend Developer'
+    const person = {
+        name: 'Mhd101'
+    }
+    const techs = ['HTML', 'CSS', 'Javascript']
+    const techsFormatted = techs.map((t) => <li key={t}>{t}</li>)
+
+    const app = (
+        <main className='main'>
+            <h1>I am {person.name}</h1> 
+            <h3>Postition: {role}</h3> 
+            <p>30 days of React requires knowledge of: </p>
+            <ul>{techsFormatted}</ul> 
+        </main>
+    )
+    
+    ReactDOM.render(app, rootElement)
+    </script>
+</body>
+</html>
