@@ -1,0 +1,63 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  background-color: rgb(236, 236, 236);
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.heading {
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.heading h2 {
+  font-size: 4em;
+  font-family: 'Bebas Neue';
+}
+
+.heading p {
+  font-size: 2em;
+  font-weight: 600;
+  font-family: 'Bebas Neue';
+}
+
+.heading p:last-child {
+  font-size: 1.5em;
+  font-family: 'Bebas Neue';
+  letter-spacing: 5px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
