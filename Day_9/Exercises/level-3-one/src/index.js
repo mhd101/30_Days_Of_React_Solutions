@@ -9,18 +9,18 @@ class Main extends React.Component{
   }
   render() {
     return (
-      <>
+      <div>
       <h1>{this.props.data.name}</h1>
       <h1>{this.props.data.position}</h1>
       <h1>{this.props.data.techs}</h1>
-      </>
+      </div>
     )
   }
 }
 
 class App extends React.Component {
   state = {
-    status: false
+    status: false,
   }
 
   data = {
@@ -29,19 +29,20 @@ class App extends React.Component {
     techs: 'Html, Css, Javascript, React'
   }
 
-  fetchData = () => {
+  fetchData(){
     setTimeout(() => {
-      const state = this.setState({
-        status: true
+      this.setState({
+        status: true,
       })
-    }, 3000);
+    }, 5000);
   }
+
   render(){
     return(
       <div>
-        {(this.state.status) && <Main data={this.data} /> }
-        <button onClick={this.fetchData}>Fetch Data</button>
-      </div> 
+        <p>{this.fetchData()}</p>
+        {(this.state.status) ? <Main data={this.data} /> : 'Fetching data...' } 
+      </div>
     )
   }
 }
