@@ -4,161 +4,147 @@ import './index.css';
 
 class App extends React.Component {
   state = {
-    firstName: '',
-    lastName: '',
+    firstname: '',
+    lastname: '',
     email: '',
-    tel: '',
-    dateOfBirth: '',
-    weight: '',
-    gender: '',
-    bio: '',
-    favoriteColor: '#ffffff',
-    file: '',
-
+    username: '',
+    password: '',
+    profile: '',
     validate: {
-      firstName: false,
-      lastName: false,
+      firstname: false,
+      lastname: false,
       email: false,
-      tel: false,
-      dateOfBirth: false,
-      weight: false,
-      gender: false,
-      bio: false,
-      favoriteColor: false,
-      file: false
+      username: false,
+      password: false,
+      profile: false,
     }
   }
 
   handleChange = (e) => {
-    const {name, value, type} = e.target
+    const { name, value, type } = e.target
 
-    if(type === 'file'){
-      this.setState({[name]: e.target.files[0].type})
+    if (type === 'file') {
+      this.setState({ profile: e.target.files[0].name })
     } else {
-      this.setState({
-        [name] : value
-      })
+      this.setState({ [name]: value })
     }
   }
 
   handleBlur = (e) => {
-    const {name} = e.target
-    this.setState({
-      validate: {...this.state.validate, [name]: true}
-    })
+    const { name } = e.target
+    this.setState({ validate: { ...this.state.validate, [name]: true } })
   }
 
   validate = () => {
     const errors = {
-      firstName: '',
-      lastName: '',
+      firstname: '',
+      lastname: '',
       email: '',
-      tel: '',
-      dateOfBirth: '',
-      weight: '',
-      gender: '',
-      bio: '',
-      favoriteColor: '',
-      file: ''
+      username: '',
+      password: '',
+      profile: ''
     }
 
-    let emailRegex = /^([a-zA-Z0-9_\-\\.]+)@([a-zA-Z0-9_\-\\.]+)\.([a-zA-Z]{2,5})$/
-    let telRegex = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\\./0-9]*$/g
+    let emailValidation = this.state.email.match(/^([a-zA-Z0-9_\-\\.]+)@([a-zA-Z0-9_\-\\.]+)\.([a-zA-Z]{2,5})$/)
+    let passwordValidation = this.state.password.match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)
+    let allowedExtensions = this.state.profile.match(/(\.jpg|\.jpeg|\.png)$/i)
 
-
-    if((this.state.validate.firstName && this.state.firstName.length <= 3) || (this.state.validate.firstName && this.state.firstName.length > 12)){
-      errors.firstName = 'First name should be between 3 and 12'
-    } else if((this.state.validate.lastName && this.state.lastName.length <= 3) || (this.state.validate.lastName && this.state.lastName.length > 12)){
-      errors.lastName = 'Last name should be between 3 and 12'
-    } else if(this.state.validate.email && !(this.state.email.match(emailRegex))){
-      errors.email = 'Enter correct Email'
-    } else if(this.state.validate.tel && !(this.state.tel.match(telRegex))){
-      errors.tel = 'Enter correct Phone No.'
-    } else if(this.state.validate.file && !(this.state.file === 'image/jpeg')){
-      errors.file = 'Only Jpeg Image Supported'
+    if ((this.state.validate.firstname && this.state.firstname.length < 3) || ((this.state.validate.firstname && this.state.firstname.length > 12))) {
+      errors.firstname = 'Firstname must be between 3 and 12'
+    } else if (((this.state.validate.lastname && this.state.lastname.length < 3) || ((this.state.validate.lastname && this.state.lastname.length > 12)))) {
+      errors.lastname = 'Lastname must be between 3 and 12'
+    } else if ((this.state.validate.email && !(emailValidation))) {
+      errors.email = 'Email should be valid'
+    } else if (((this.state.validate.username && this.state.username.length < 3) || ((this.state.validate.username && this.state.username.length > 8)))) {
+      errors.username = 'Username must be between 3 and 8'
+    } else if ((this.state.validate.password && !(passwordValidation))) {
+      errors.password = 'Minimum eight characters, at least one letter, one number and one special character required'
+    } else if ((this.state.validate.profile && !(allowedExtensions))) {
+      errors.profile = 'Only jpeg, png, jpg allowed'
     }
 
     return errors
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
-    if(this.state.firstName !== '' && this.state.lastName !== '' && this.state.email !== '' && this.state.tel !== '' && this.state.dateOfBirth !== '' && this.state.weight !== '' && this.state.gender !== '' && this.state.favoriteColor !== '' && this.state.file !== 'ima'){
+    e.preventDefault();
+
+    let { firstname, lastname, email, username, password, profile } = this.validate()
+
+    if (((firstname.length >= 1 || lastname.length >= 1 || email.length >= 1 || username.length >= 1 || password.length >= 1 || profile.length >= 1))) {
+      alert('Enter correct Input');
+    }else if(this.state.firstname.length === 0 || this.state.lastname.length === 0 || this.state.email.length === 0 || this.state.username.length === 0 || this.state.password.length === 0 || this.state.profile.length === 0){
+      alert('All input fields are required')
+    } else {
       console.log(this.state)
-    } 
+    }
+
   }
 
   render() {
-    const {firstName, lastName,email, tel, file} = this.validate()
-    const {bio} = this.state
+    let { firstname, lastname, email, username, password, profile } = this.validate()
+
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} noValidate>
+      <form onSubmit={this.handleSubmit}>
+        <h2>Create an Account</h2>
+        <div className='input-container'>
           <div>
-            <label htmlFor='firstName'>FirstName: </label>
-            <input type='text' name='firstName' value={this.state.firstName} id='firstName' onBlur={this.handleBlur} onChange={this.handleChange} />
-            <p style={{color: 'red'}}>{firstName}</p>
-          </div>
-          <div>
-            <label htmlFor='lastName'>LastName: </label>
-            <input type='text' name='lastName' value={this.state.lastName} id='lastName' onBlur={this.handleBlur} onChange={this.handleChange} />
-            <p style={{color: 'red'}}>{lastName}</p>
-          </div>
-          <div>
-            <label htmlFor='email'>Email: </label>
-            <input type='email' name='email' value={this.state.email} id='email' onBlur={this.handleBlur} onChange={this.handleChange} />
-            <p style={{color: 'red'}}>{email}</p>
-          </div>
-          <div>
-            <label htmlFor='tel'>Phone: </label>
-            <input type='phone' name='tel' value={this.state.tel} id='tel' onBlur={this.handleBlur} onChange={this.handleChange} />
-            <p style={{color: 'red'}}>{tel}</p>
-          </div>
-          <div>
-            <label htmlFor='dateOfBirth'>DOB: </label>
-            <input type='date' name='dateOfBirth' value={this.state.dateOfBirth} id='dateOfBirth' onBlur={this.handleBlur} onChange={this.handleChange} />
-          </div>
-          <div>
-            <label htmlFor='weight'>Weight: </label>
-            <input type='number' name='weight' value={this.state.weight} id='weight' onBlur={this.handleBlur} onChange={this.handleChange} />
-          </div>
-          
-          <div className='gender'>
-            Gender
-            <div>
-              <input type='radio' name='gender' value='male' id='male' onBlur={this.handleBlur} onChange={this.handleChange} checked={this.state.gender === 'male'} />
-              <label htmlFor='male'>Male</label>
-              <input type='radio' name='gender' value='female' id='female' onBlur={this.handleBlur} onChange={this.handleChange} checked={this.state.gender === 'female'} />
-              <label htmlFor='female'>Female</label>
+            <div className='firstname'>
+              <label htmlFor='firstname'>Firstname:</label>
+              <input type='text' id='firstname' name='firstname' value={this.state.firstname} onBlur={this.handleBlur} onChange={this.handleChange}></input>
             </div>
-          </div>
-
-          <div className='bio'>
-            <label htmlFor='bio'>Bio: </label>
-            <textarea value={bio} onChange={this.handleChange} name='bio'></textarea>
+            <span style={{ color: 'red' }}>{firstname}</span>
           </div>
 
           <div>
-            <label htmlFor='favoriteColor'>favoriteColor: </label>
-            <input type='color' name='favoriteColor' value={this.state.favoriteColor} id='favoriteColor' onBlur={this.handleBlur} onChange={this.handleChange} />
+            <div className='lastname'>
+              <label htmlFor='lastname'>Lastname:</label>
+              <input type='text' id='lastname' name='lastname' value={this.state.lastname} onBlur={this.handleBlur} onChange={this.handleChange}></input>
+            </div>
+            <span style={{ color: 'red' }}>{lastname}</span>
           </div>
 
           <div>
-            <label htmlFor='file'>Select File: </label>
-            <input type='file' name='file' id='file' onBlur={this.handleBlur} onChange={this.handleChange} />
-            <p style={{color: 'red'}}>{file}</p>
+            <div className='email'>
+              <label htmlFor='email'>Email:</label>
+              <input type='email' id='email' name='email' value={this.state.email} onBlur={this.handleBlur} onChange={this.handleChange}></input>
+            </div>
+            <span style={{ color: 'red' }}>{email}</span>
           </div>
 
-          <button type='submit'>Submit</button>
-        </form>
-      </div>
+          <div>
+            <div className='username'>
+              <label htmlFor='username'>Username:</label>
+              <input type='text' id='username' name='username' value={this.state.username} onBlur={this.handleBlur} onChange={this.handleChange}></input>
+            </div>
+            <span style={{ color: 'red' }}>{username}</span>
+          </div>
+
+          <div>
+            <div className='password'>
+              <label htmlFor='password'>Password:</label>
+              <input type='password' id='password' name='password' value={this.state.password} onBlur={this.handleBlur} onChange={this.handleChange}></input>
+            </div>
+            <span style={{ color: 'red' }}>{password}</span>
+          </div>
+
+          <div>
+            <div className='profile'>
+              <label htmlFor='profile'>Profile:</label>
+              <input type='file' id='profile' name='profile' onBlur={this.handleBlur} onChange={this.handleChange}></input>
+            </div>
+            <span style={{ color: 'red' }}>{profile}</span>
+          </div>
+
+          <div className='submit-btn'>
+            <button type='submit'>Signup</button>
+          </div>
+
+        </div>
+      </form>
     )
   }
 }
-
-
-
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
