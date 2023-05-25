@@ -18,42 +18,28 @@ code {
     monospace;
 }
 
-form {
-  background-color: rgba(240, 240, 240, 0.226);
-  min-width: 500px;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
+#root {
+  background-color: rgb(240, 240, 240);
+  padding: 50px;
   border-radius: 5px;
-  box-shadow: 1px 1px 20px #c2c2c2;
-}
-
-.input-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  min-width: 300px;
-  max-width: 300px;
-  gap: 10px;
-}
-
-.input-container .submit-btn{
-  margin: 0 auto;
-}
-
-.firstname, .lastname, .email, .username, .password, .profile {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  width: 300px;
+  min-width: 80%;
 }
 
 input {
   padding: 5px;
+}
+
+span {
+  color: red;
+  display: none;
+}
+
+input:invalid[focus='true'] ~ span {
+  display: block
+}
+
+input:invalid[focus='true']{
+  border: 1px solid red;  
 }
 
 button {
