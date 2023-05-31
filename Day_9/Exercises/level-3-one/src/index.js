@@ -19,8 +19,12 @@ class Main extends React.Component{
 }
 
 class App extends React.Component {
-  state = {
-    status: false,
+
+  constructor(props){
+    super(props)
+    this.state = {
+      status: false
+    }
   }
 
   data = {
@@ -29,19 +33,21 @@ class App extends React.Component {
     techs: 'Html, Css, Javascript, React'
   }
 
+
+
   fetchData(){
     setTimeout(() => {
-      this.setState({
-        status: true,
-      })
-    }, 5000);
+      this.setState({status: true})
+    }, 3000);
   }
 
+
   render(){
+    console.log(this.state.status)
     return(
       <div>
-        <p>{this.fetchData()}</p>
         {(this.state.status) ? <Main data={this.data} /> : 'Fetching data...' } 
+        <button  onClick={this.fetchData.bind(this)}>Fetch Data</button>
       </div>
     )
   }
