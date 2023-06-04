@@ -1,4 +1,8 @@
 {
     "editor.fontFamily": "Fira Code",
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "files.autoSave": "afterDelay",
+    "javascript.inlayHints.parameterNames.enabled": "none",
+    "javascript.inlayHints.parameterTypes.enabled": false,
+    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": false
 }

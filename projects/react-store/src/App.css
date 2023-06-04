@@ -1,0 +1,261 @@
+/* Components */
+
+/* Navbar */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
+header .logo  a{
+  text-decoration: none;
+  color: white;
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 1.3em;
+  transition: 0.2s;
+}
+
+header a:hover {
+  color: rgb(196, 196, 196);
+}
+
+/* Product Card */
+.product-card {
+  background-color: rgb(0, 0, 0);
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  border: 1px solid black;
+  transition: 0.2s;
+}
+
+.product-card img {
+  object-fit: cover;
+}
+
+.product-card:hover {
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.486);
+}
+
+.product-card a {
+  text-decoration: none;
+}
+
+.product-thumbnail {
+  width: 100%;
+  height: 70%;
+}
+
+.product-card-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+}
+
+.product-card-text span {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+
+/* Pages */
+
+/* Home Page Css */
+.home-page-container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.home-page-title {
+  text-align: center;
+  font-size: 5em;
+}
+
+.home-page-desc {
+  font-size: 2.5em;
+}
+
+/* About Page Css */
+.about-page-container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  
+}
+
+.about-page-title {
+  text-align: center;
+  font-size: 5em;
+}
+
+.about-page-desc {
+  font-size: 2.5em;
+}
+
+
+/* All Products */
+.all-product-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-product-container hr {
+  color: black;
+  width: 80%;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.288);
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.all-product-title {
+  margin: 20px 0;
+  font-size: 1.8em;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 50px;
+  margin-bottom: 30px;
+}
+
+.product-container a {
+  text-decoration: none;
+}
+
+/* Product Page */
+
+.single-product-wrapper {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.back-btn {
+  width: 80%;
+}
+
+.single-product-container {
+  margin: 10px;
+  background: rgb(8, 8, 8);
+  width: 80%;
+  color: white;
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.single-product-image  {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.single-product-image img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.single-product-text {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+  align-items: start;
+  padding: 30px;
+}
+
+.single-product-text span {
+  font-weight: 600;
+}
+
+.single-product-heading h2 {
+  font-size: 4em;
+}
+
+.single-product-heading p {
+  font-weight: 100;
+  margin-top: 10px;
+}
+
+.single-product-rating {
+  font-size: 1.8em;
+}
+
+.single-product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.single-product-details .single-product-stock {
+  font-size: 1.4em;
+}
+
+.single-product-details .single-product-price {
+  font-size: 1.5em;
+}
+
+.buy-now-btn {
+  border: none;
+  color: black;
+  background-color: white;
+  padding: 15px 40px;
+  cursor: pointer;
+}
+/* Not Found Page */
+
+.notfound-page-container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notfound-page-title {
+  text-align: center;
+  font-size: 5em;
+}
+
+.notfound-page-desc {
+  font-size: 2.5em;
+}
